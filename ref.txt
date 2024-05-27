@@ -1,0 +1,123 @@
+metadata.schema.json:
+    source_metadata.schema.json:
+        source_meta.schema.json:
+            [see below]
+        [see below]
+        progress.schema.json @@@
+
+    derived_metadata.schema.json:
+        derived_meta.schema.json:
+            [see below]
+        [see below]
+        recipe.schema.json
+        promotion.schema.json @@@
+
+    template_metadata.schema.json:
+        template_meta.schema.json:
+            common.schema.json#/definitions/localizedText @@@
+            [see below]
+        [see below]
+
+    [shared by source and template categories]:
+        copyright_constraints.schema.json
+
+    [shared by all categories]:
+        id_authorities.schema.json:
+            common.schema.json#/definitions/url
+            common.schema.json#/definitions/localizedText
+            common.schema.json#/definitions/idAuthorityLabel
+        identification.schema.json:
+            common.schema.json#/definitions/localizedText
+            common.schema.json#/definitions/revisionString
+            common.schema.json#/definitions/timestamp
+        confidential.schema.json
+        type.schema.json:
+            scope.schema.json **
+            x_flavor.schema.json
+            gloss/text_stories.schema.json
+            scripture/audio_translation.schema.json
+            scripture/embossed_braille_scripture.schema.json
+            scripture/sign_language_video_translation.schema.json
+            scripture/text_translation.schema.json
+            scripture/typeset_scripture.schema.json
+        relationships.schema.json:
+            relationship.schema.json
+            common.schema.json#/definitions/prefixedId
+            common.schema.json#/definitions/revisionString
+        languages.schema.json:
+            language.schema.json:
+                common.schema.json#/definitions/languageTag
+                common.schema.json#/definitions/localizedText
+                numbering_system.schema.json
+                common.schema.json#/definitions/rodCode
+        target_areas.schema.json:
+            target_area.schema.json:
+                common.schema.json#/definitions/countryCode
+                unm49.schema.json
+                common.schema.json#/definitions/localizedText
+        agencies.schema.json
+
+schema/agencies.schema.json:        "$ref": "agency.schema.json"
+schema/agency.schema.json:            "$ref": "common.schema.json#/definitions/prefixedId"
+schema/agency.schema.json:            "$ref": "common.schema.json#/definitions/localizedText"
+schema/agency.schema.json:            "$ref": "common.schema.json#/definitions/localizedText"
+schema/agency.schema.json:            "$ref": "common.schema.json#/definitions/url"
+
+        copyright.schema.json
+
+schema/copyright.schema.json:                        "$ref": "common.schema.json#/definitions/url"
+schema/copyright.schema.json:                        "$ref": "common.schema.json#/definitions/path"
+schema/copyright.schema.json:                        "$ref": "common.schema.json#/definitions/languageTag"
+schema/copyright.schema.json:                        "$ref": "common.schema.json#/definitions/mimeType"
+
+        ingredients.schema.json
+
+schema/ingredients.schema.json:        "$ref": "ingredient.schema.json"
+schema/ingredients.schema.json:        "$ref": "common.schema.json#/definitions/path"
+schema/ingredient.schema.json:            "$ref": "common.schema.json#/definitions/languageTag"
+schema/ingredient.schema.json:            "$ref": "common.schema.json#/definitions/mimeType"
+schema/ingredient.schema.json:            "$ref": "scope.schema.json **
+schema/ingredient.schema.json:            "$ref": "role.schema.json"
+
+        localized_names.schema.json
+
+schema/localized_names.schema.json:        "$ref": "localized_name.schema.json"
+schema/localized_name.schema.json:            "$ref": "common.schema.json#/definitions/localizedText"
+schema/localized_name.schema.json:            "$ref": "common.schema.json#/definitions/localizedText"
+schema/localized_name.schema.json:            "$ref": "common.schema.json#/definitions/localizedText"
+
+[shared by source_meta, derived_meta, and template_meta]:
+    meta_date_created.schema.json
+    meta_version.schema.json
+    software_and_user_info.schema.json:
+        common.schema.json#/definitions/prefixedId
+
+    meta_default_language.schema.json:
+        common.schema.json#/definitions/languageTag
+    normalization.schema.json
+    meta_comments.schema.json
+
+
+schema/scope.schema.json:        "$ref": "common.schema.json#/definitions/bookId"
+schema/scripture/audio_translation.schema.json:                "timingDir": { "$ref": "../common.schema.json#/definitions/path" }
+schema/scripture/audio_translation.schema.json:                "$ref": "#/definitions/format"
+schema/scripture/audio_translation.schema.json:                    { "$ref": "../common.schema.json#/definitions/xToken" },
+schema/scripture/embossed_braille_scripture.schema.json:                "oneOf": [{ "$ref": "../common.schema.json#/definitions/xToken" }]
+schema/scripture/sign_language_video_translation.schema.json:                "$ref": "#/definitions/format"
+schema/scripture/sign_language_video_translation.schema.json:                    { "$ref": "../common.schema.json#/definitions/xToken" },
+schema/scripture/text_translation.schema.json:                    { "$ref": "../common.schema.json#/definitions/xToken" },
+schema/scripture/typeset_scripture.schema.json:        "width": { "$ref": "#/definitions/measurementString" },
+schema/scripture/typeset_scripture.schema.json:        "height": { "$ref": "#/definitions/measurementString" },
+schema/scripture/typeset_scripture.schema.json:        "scale": { "$ref": "#/definitions/percentageString" },
+schema/scripture/typeset_scripture.schema.json:        "orientation": { "$ref": "#/definitions/orientation" },
+schema/scripture/typeset_scripture.schema.json:        "colorSpace": { "$ref": "#/definitions/colorSpace" },
+schema/scripture/typeset_scripture.schema.json:                "top": { "$ref": "#/definitions/measurementString" },
+schema/scripture/typeset_scripture.schema.json:                "bottom": { "$ref": "#/definitions/measurementString" },
+schema/scripture/typeset_scripture.schema.json:                "inside": { "$ref": "#/definitions/measurementString" },
+schema/scripture/typeset_scripture.schema.json:                "outside": { "$ref": "#/definitions/measurementString" }
+schema/scripture/typeset_scripture.schema.json:                    { "$ref": "../common.schema.json#/definitions/xToken" },
+
+schema/common.schema.json:                "$ref": "#/definitions/trimmedText"
+schema/common.schema.json:                "$ref": "#/definitions/languageTag"
+schema/common.schema.json:                "$ref": "#/definitions/simplifiedXHTML"
+schema/common.schema.json:                "$ref": "#/definitions/languageTag"
